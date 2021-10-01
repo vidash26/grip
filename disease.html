@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Diabetes Risk Prediction app</h1>
+
+    <img src="diabetes.jpeg" height = "500" width = "1250" alt="heart image">
+    <br>
+    <br>
+
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="age" required="required" />
+        <input type="text" name="trestbps" placeholder="trestbps" required="required" />
+		<input type="text" name="chol" placeholder="cholestrol" required="required" />
+        <input type="text" name="thalach" placeholder="maximum heart rate achieved " required="required" />
+		<input type="text" name="oldpeak" placeholder="ST depression induced by exercise relative to rest " required="required" />
+        <br>
+        <br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <p>Score near 1 means higher chances of heart disease. Still consult your primary physician</p>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
